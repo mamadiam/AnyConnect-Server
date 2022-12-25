@@ -1,2 +1,4 @@
-# openconnect
-Open Connect server with IR bridge and BBR, Domain, SSL, CDN
+# AnyConnect-Server
+Installation Script for Cisco AnyConnect
+
+Deploy a Cisco AnyConnect compactable ocserv server on Linux (Tested on Ubuntu)
