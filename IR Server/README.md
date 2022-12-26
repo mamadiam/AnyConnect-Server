@@ -60,13 +60,13 @@ iptables -t nat -A PREROUTING -j DNAT --to-destination "non-IR Server"
 iptables -t nat -A POSTROUTING -j MASQUERADE
 ```
 
-### 2. Connect Server to Cloudflare CDN or ArvanCloud (whichever you choose), I'll go by with Cloudflare
-&nbsp;&nbsp; 2-1. Login into cloudflare Account
-&nbsp;&nbsp; 2-2. Add your domain you purchase from [Freenom](https://www.freenom.com/en/index.html?lang=en)
-&nbsp;&nbsp; 2-3. Click + Add new domains
-&nbsp;&nbsp; 2-4. Add new Domain and set cloudflare NS to your domain
-&nbsp;&nbsp; 2-5. In DNS > DNS Records
-&nbsp;&nbsp; 2-6. Create new A Record, Set Name to your Subdomain and IPv4 address to your IR Server
+### 2. Connect Server to Cloudflare CDN or ArvanCloud (whichever you choose), I'll go by with Cloudflare</br></br>
+&nbsp;&nbsp; 2-1. Login into cloudflare Account</br>
+&nbsp;&nbsp; 2-2. Add your domain you purchase from [Freenom](https://www.freenom.com/en/index.html?lang=en)</br>
+&nbsp;&nbsp; 2-3. Click + Add new domains</br>
+&nbsp;&nbsp; 2-4. Add new Domain and set cloudflare NS to your domain</br>
+&nbsp;&nbsp; 2-5. In DNS > DNS Records</br>
+&nbsp;&nbsp; 2-6. Create new A Record, Set Name to your Subdomain and IPv4 address to your IR Server</br>
 &nbsp;&nbsp; 2-7. Turn off Proxy </br></br>
 ### 3. Get SSL
 
