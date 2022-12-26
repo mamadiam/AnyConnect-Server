@@ -1,4 +1,4 @@
-#### Install the appropriate client based on your platform:</br>
+### Install the appropriate client based on your platform:</br>
 | platform | name | link |
 | ------ | ------ | ------ |
 | Windows | AnyConnect | (https://apps.microsoft.com/store/detail/anyconnect/9WZDNCRDJ8LH?hl=en-us&gl=us) |
@@ -8,5 +8,11 @@
 | macOS | AnyConnect  | (https://apps.apple.com/us/app/cisco-secure-client/id1135064690) |
 
 </br>
-If you don't have any access to AppStore go to [AltStore] (https://altstore.io/).
+If you don't have any access to AppStore go to [AltStore](https://altstore.io/).
 
+### Instructions:</br>
+#### 1. Navigate into the setting and unchecked the `Block Untrusted Servers`.</br>
+#### 2. Click on connections and add new connection.</br>
+#### 3. In the descriptions set `your name` and in server address `vpn.example.com:port`</br></br>
+
+Share it with your loved ones.
