@@ -1,6 +1,7 @@
 ## on Your IR Server</br>
 
-### 1. Connect Server to Cloudflare CDN or ArvanCloud (whichever you choose), I'll go by with Cloudflare</br></br>
+### 1. Connect Server to Cloudflare CDN or ArvanCloud.</br>
+ (whichever you choose), I'll go by with Cloudflare</br></br>
 &nbsp;&nbsp; 1-1. Login into cloudflare Account</br>
 &nbsp;&nbsp; 1-2. Click + to add the domain you purchase from [Freenom](https://www.freenom.com/en/index.html?lang=en) to your account</br>
 &nbsp;&nbsp; 1-3. Set cloudflare NS to your domain</br>
