@@ -78,8 +78,8 @@ Note: First copy it into an editor and change the `IP Server` and `non-IR Server
 
 ```shell script
 sysctl net.ipv4.ip_forward=1
-iptables -t nat -A PREROUTING -p tcp --dport 22 -j DNAT --to-destination "IP Server"
-iptables -t nat -A PREROUTING -j DNAT --to-destination "non-IR Server"
+iptables -t nat -A PREROUTING -p tcp --dport 22 -j DNAT --to-destination IP Server
+iptables -t nat -A PREROUTING -j DNAT --to-destination non-IR Server
 iptables -t nat -A POSTROUTING -j MASQUERADE
 ```
 
@@ -99,8 +99,8 @@ Now paste the rules we declare before
 ```shell script
 #! /bin/bash
 sysctl net.ipv4.ip_forward=1
-iptables -t nat -A PREROUTING -p tcp --dport 22 -j DNAT --to-destination "IP Server"
-iptables -t nat -A PREROUTING -j DNAT --to-destination "non-IR Server"
+iptables -t nat -A PREROUTING -p tcp --dport 22 -j DNAT --to-destination IP Server
+iptables -t nat -A PREROUTING -j DNAT --to-destination non-IR Server
 iptables -t nat -A POSTROUTING -j MASQUERADE
 exit 0
 ```
