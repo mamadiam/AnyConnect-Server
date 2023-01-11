@@ -48,7 +48,7 @@ sudo apt install curl socat -y
 sudo apt-get install iptables
 ``` 
 Note: I've try `iptables-persistent`, It doesn't work with the most of the datacenters and they drop the connections quickly.</br>
-</br></br>
+</br>
 ### 3. Get SSL </br>
 #### 3-1. Install acme script </br>
 ```shell script
@@ -69,54 +69,87 @@ Note: replace host.mydomain.com by your actual host name
 ```shell script
 ~/.acme.sh/acme.sh --issue -d host.mydomain.com --standalone
 ``` 
-</br></br>
+</br>
+
 ### 4. Set iptables values </br>
+
 #### 4-1. Run this command all at once </br>
 Note: First copy it into an editor and change the `IP Server` and `non-IR Server`.</br>
+
 ```shell script
 sysctl net.ipv4.ip_forward=1
 iptables -t nat -A PREROUTING -p tcp --dport 22 -j DNAT --to-destination "IP Server"
 iptables -t nat -A PREROUTING -j DNAT --to-destination "non-IR Server"
 iptables -t nat -A POSTROUTING -j MASQUERADE
 ```
-If you want to make your changes permenant incase of reboot, do the following step
+
+</br>
+If you want to make your changes permenant incase of reboot, do the following step</br>
+
 #### 4-2. Open rc.local </br>
+
 ```shell script
 sudo nano /etc/rc.local
 ```
-Now paste the rules we declare before</br>
+
+</br>
+Now paste the rules we declare before
+</br>
+
 ```shell script
+#! /bin/bash
 sysctl net.ipv4.ip_forward=1
 iptables -t nat -A PREROUTING -p tcp --dport 22 -j DNAT --to-destination "IP Server"
 iptables -t nat -A PREROUTING -j DNAT --to-destination "non-IR Server"
 iptables -t nat -A POSTROUTING -j MASQUERADE
+exit 0
 ```
-</br></br>
 
+</br>
+#### 4-3. Give it executable allowance. </br>
+
+```shell script
+sudo chmod +x /etc/rc.local
+```
+
+</br>
 Now, at this point you are good to go and can connect to your `ocserv` server but there is a tiny step you could take for more security.
+
 ### 5. Transfer SSL to ocserv server (Optional)</br>
 I'm assuming you used `Let's Encrypt` for generating ssl.
+
 #### 5-1. Navigate to this directoy </br>
 ```shell script
 cd /root/.acme.sh/your-domain
 ```
+
 #### 5-2. Copy both `.cer` and `key` files </br>
+
 #### 5-3. Now login to your non-IR server </br>
+
 #### 5-4. Navigate to this directoy </br>
+
 ```shell script
 cd /etc/ocserv/ssl/
 ```
+
 #### 5-5. Paste both files into this directory </br>
+
 #### 5-6. Open the `ocserv.conf` file </br>
+
 ```shell script
 nano /etc/ocserv/ocserv.conf
 ```
+
 #### 5-7. Change the server cert and key in the `ocserv.conf` file </br>
+
 ```shell script
 server-cert = /etc/ocserv/ssl/server-cert.pem
 server-key = /etc/ocserv/ssl/server-key.pem
 ```
+
 to
+
 ```shell script
 server-cert = /etc/ocserv/ssl/your-domain.cer
 server-key = /etc/ocserv/ssl/your-domain.key
