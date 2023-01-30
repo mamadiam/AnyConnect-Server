@@ -52,7 +52,11 @@ Note: I've try `iptables-persistent`, It doesn't work with the most of the datac
 ### 3. Get SSL </br>
 #### 3-1. Install acme script </br>
 ```shell script
-curl https://get.acme.sh | sh
+( cd ~
+mkdir .acme.sh
+cd .acme.sh
+wget https://raw.githubusercontent.com/acmesh-official/acme.sh/master/acme.sh
+chmod 777 acme.sh )
 ``` 
 #### 3-2. Set the default provider to Let’s Encrypt </br>
 Note: you can use `cerbot` or any other services you want.
